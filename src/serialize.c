@@ -102,12 +102,12 @@ void serialize(u8 *bytes, const s64 *poly) {
                 mask = input[i] >> 31;
                 carry = -((input[i] & mask) >> 25);
                 input[i] = input[i] + (carry << 25);
-                input[i+1] = input[i+1] - carry;
+                input[i + 1] = input[i + 1] - carry;
             } else {
                 mask = input[i] >> 31;
                 carry = -((input[i] & mask) >> 26);
                 input[i] = input[i] + (carry << 26);
-                input[i+1] = input[i+1] - carry;
+                input[i + 1] = input[i + 1] - carry;
             }
         }
         /* input[9] is the highest used coefficient in the reduced form, so
@@ -210,15 +210,15 @@ void serialize(u8 *bytes, const s64 *poly) {
     bytes[s+3]  = (input[i] >> 24) & 0xff;
     bytes[0] = 0;
     bytes[16] = 0;
-    F(0,0);
-    F(1,3);
-    F(2,6);
-    F(3,9);
-    F(4,12);
-    F(5,16);
-    F(6,19);
-    F(7,22);
-    F(8,25);
-    F(9,28);
+    F(0, 0);
+    F(1, 3);
+    F(2, 6);
+    F(3, 9);
+    F(4, 12);
+    F(5, 16);
+    F(6, 19);
+    F(7, 22);
+    F(8, 25);
+    F(9, 28);
 #undef F
 }

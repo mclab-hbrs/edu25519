@@ -78,7 +78,7 @@ static void swap_points(point *a, point *b, s64 swap) {
     s32 mask = (s32) -swap;
     s32 x;
 
-   for (i = 0; i < 10; ++i) {
+    for (i = 0; i < 10; ++i) {
         x = mask & (((s32) a->x[i]) ^ ((s32) b->x[i]));
         a->x[i] = ((s32) a->x[i]) ^ x;
         b->x[i] = ((s32) b->x[i]) ^ x;
@@ -97,10 +97,14 @@ static void swap_points(point *a, point *b, s64 swap) {
  * @param basepoint x value of the base point to use for scalar multiplication
  */
 void montgomery_ladder(point *result, const u8 *scalar, const s64 *basepoint) {
-    point A = {{1}, {0}};
-    point B = {{0}, {1}};
-    point C = {{0}, {1}};
-    point D = {{0}, {1}};
+    point A = {{1},
+               {0}};
+    point B = {{0},
+               {1}};
+    point C = {{0},
+               {1}};
+    point D = {{0},
+               {1}};
 
     point *op_a = &A, *op_b = &B, *res_double = &C, *res_add = &D, *tmp;
 

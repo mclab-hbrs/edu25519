@@ -6,6 +6,7 @@
 #define EDU25519_TYPES_H
 
 #include <stdint.h>
+
 typedef int8_t s8;
 typedef int32_t s32;
 typedef int64_t s64;
