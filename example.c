@@ -10,7 +10,7 @@ void print_bytes(u8 *bytes) {
     for (int i = 0; i < 32; i++) {
         printf("%02x", bytes[i]);
     }
-    printf("\n");
+    puts("");
 }
 
 
@@ -23,13 +23,18 @@ int main(void) {
     u8 shared2[32];
 
     curve25519_getpub(pub, priv);
+    puts("Pubkey 1:");
     print_bytes(pub);
 
     curve25519_getpub(pub2, priv2);
+    puts("Pubkey 2:");
+    print_bytes(pub2);
 
     curve25519_getshared(shared1, pub, priv2);
+    puts("Shared key 1:");
     print_bytes(shared1);
 
     curve25519_getshared(shared2, pub2, priv);
+    puts("Shared key 2:");
     print_bytes(shared2);
 }
