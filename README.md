@@ -4,6 +4,7 @@ It uses the montgomery ladder and most tricks introduced in the original paper,
 mainly the radix ceil(25.5i) storing that makes reduction very fast.
 
 This code was written as a clean, readable, self-contained implementation for **educational purposes only**.
+
 It's supposed to show the concepts of the original publication in a comprehensible manner and 
 has therefore not been optimized for speed or security, but for readability!
 
