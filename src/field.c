@@ -13,7 +13,7 @@
 void mul(s64 *result, const s64 *a, const s64 *b) {
     u32 i, j;
 
-    memset(result, 0, 20 * sizeof(s64));
+    memset(result, 0, ELEMENT_SIZE_BYTES);
 
     for (i = 0; i < 10; ++i) {
         for (j = 0; j < 10; ++j) {
