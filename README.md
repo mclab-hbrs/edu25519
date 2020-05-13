@@ -2,8 +2,9 @@
 This is an implementation of Curve25519 from Daniel Bernstein.
 It uses the most tricks introduced in the original paper, mainly the radix ceil(25.5i) storing that makes reduction very fast.
 
-This code was written as a clean, readable, self-contained implementation for **educational purposes only**. 
-It has not been optimized for speed or security, but for readability!
+This code was written as a clean, readable, self-contained implementation for **educational purposes only**.
+It's supposed to show the concepts of the original publication in a comprehensible manner and 
+has therefore not been optimized for speed or security, but for readability!
 
 ## Build
 To build the library and example program, do the usual cmake dance:
