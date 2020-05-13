@@ -1,7 +1,3 @@
-//
-// Created by rg on 5/12/20.
-//
-
 #include "montgomery.h"
 #include "field.h"
 

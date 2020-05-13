@@ -1,7 +1,3 @@
-//
-// Created by rg on 5/7/20.
-//
-
 #ifndef EDU25519_SERIALIZE_H
 #define EDU25519_SERIALIZE_H
 

@@ -1,7 +1,3 @@
-//
-// Created by rg on 5/12/20.
-//
-
 #ifndef EDU25519_CURVE25519_H
 #define EDU25519_CURVE25519_H
 

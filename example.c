@@ -1,7 +1,3 @@
-//
-// Created by rg on 5/12/20.
-//
-
 #include "src/curve25519.h"
 #include <stdio.h>
 

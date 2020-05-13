@@ -1,7 +1,3 @@
-//
-// Created by rg on 5/7/20.
-//
-
 #include "serialize.h" /* masks */
 #include "types.h" /* short type names */
 #include "field.h" /* IS_ODD */

@@ -1,7 +1,3 @@
-//
-// Created by rg on 5/12/20.
-//
-
 #include "curve25519.h"
 #include "field.h"
 #include "montgomery.h"
