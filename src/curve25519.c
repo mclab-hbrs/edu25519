@@ -13,7 +13,7 @@
 /**
  * Specified generator point with x=9,z=1
  */
-static const u8 generator[32] = {9};
+static const s64 generator[ELEMENT_SIZE] = {9};
 
 /**
  * Curve25519 primitive as described in the djb paper.
@@ -22,12 +22,12 @@ static const u8 generator[32] = {9};
  * @param scalar Scalar stating how often the basepoint has to be added to itself
  * @param basepoint Basepoint to add.
  */
-static void curve25519(u8 *out, const u8 *scalar, const u8 *basepoint) {
-    s64 bp[20], z_inv[20];
-    uint8_t e[32];
+static void curve25519(u8 *out, const u8 *scalar, const s64 *basepoint) {
+    s64 z_inv[ELEMENT_SIZE];
+    uint8_t e[KEY_SIZE_BYTES];
     point P;
 
-    memcpy(e, scalar, 32);
+    memcpy(e, scalar, KEY_SIZE_BYTES);
 
     // set lowest 3 bits to zero to get multiple of 8, to avoid small subgroups
     e[0] &= 0xF8;
@@ -36,9 +36,7 @@ static void curve25519(u8 *out, const u8 *scalar, const u8 *basepoint) {
     e[31] &= 0x7F;
     e[31] |= 0x40;
 
-
-    deserialize(bp, basepoint);
-    montgomery_ladder(&P, e, bp);
+    montgomery_ladder(&P, e, basepoint);
     invert(z_inv, P.z);
     mul_reduced(P.z, P.x, z_inv);
     serialize(out, P.z);
@@ -62,5 +60,7 @@ void curve25519_getpub(u8 *pubkey, const u8 *secret) {
  * @param secret 32 byte little-endian scalar to multiply on generator
  */
 void curve25519_getshared(u8 *shared, const u8 *pubkey, const u8 *privkey) {
-    curve25519(shared, privkey, pubkey);
+    s64 pubkey_fe[ELEMENT_SIZE] = {0,};
+    deserialize(pubkey_fe, pubkey);
+    curve25519(shared, privkey, pubkey_fe);
 }

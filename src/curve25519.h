@@ -7,6 +7,8 @@
 
 #include "types.h"
 
+#define KEY_SIZE_BYTES 32
+
 void curve25519_getpub(u8 *pubkey, const u8 *secret);
 
 void curve25519_getshared(u8 *shared, const u8 *pubkey, const u8 *privkey);
