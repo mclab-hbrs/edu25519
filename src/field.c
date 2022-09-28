@@ -1,5 +1,4 @@
 #include "field.h"
-#include "utils.h"
 
 #include <string.h>  /* memset */
 
